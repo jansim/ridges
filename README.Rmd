@@ -39,7 +39,7 @@ The package workflow is simple:
 
 Here's a basic example of the different kinds of visualizations available.
 
-```{r example, message=FALSE, warning=FALSE}
+```{r example, fig.height=5.7, fig.width=10, message=FALSE, warning=FALSE}
 library(ridges)
 
 # We'll use the included elevation data for the Wilder Kaiser mountain range
