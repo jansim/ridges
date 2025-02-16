@@ -25,6 +25,7 @@ URL: http://simson.io/ridges/, https://github.com/jansim/ridges
 Suggests:
     testthat (>= 3.0.0),
     raster,
-    vdiffr
+    vdiffr,
+    rgl
 Config/testthat/edition: 3
 BugReports: https://github.com/jansim/ridges/issues
