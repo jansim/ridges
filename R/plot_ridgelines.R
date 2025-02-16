@@ -8,14 +8,16 @@
 #' @param scale_factor Scaling factor for the height of ridgelines (default: 1)
 #' @param line_color Color of the ridgelines (default: "black")
 #' @param fill_color Fill color below the lines (default: "black", with alpha = 0.1)
+#' @param linewidth Width of the ridgelines (default: 0.5)
 #' @return A ggplot object
 #' @export
 #'
 plot_ridgelines <- function(elevation = NULL,
                             n_lines = 30,
-                            scale_factor = 15,
+                            scale_factor = 10,
                             line_color = "#000000",
-                            fill_color = "#0000001A") {
+                            fill_color = "#0000001A",
+                            linewidth = 0.5) {
   # Calculate ridgeline data
   plot_data <- calculate_ridgelines(elevation, n_lines)
   max_elevation <- max(plot_data$elevation)
@@ -47,6 +49,7 @@ plot_ridgelines <- function(elevation = NULL,
     ggridges::geom_ridgeline(
       color = line_color,
       fill = fill_color,
+      linewidth = linewidth,
       show.legend = FALSE
     ) +
     ggplot2::theme_minimal() +
