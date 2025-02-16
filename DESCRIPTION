@@ -24,6 +24,7 @@ Depends:
 LazyData: true
 URL: http://simson.io/ridges/, https://github.com/jansim/ridges
 Suggests:
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    vdiffr
 Config/testthat/edition: 3
 BugReports: https://github.com/jansim/ridges/issues
