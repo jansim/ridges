@@ -13,7 +13,7 @@
 #'
 plot_ridgelines <- function(elevation = NULL,
                            n_lines = 30,
-                           scale_factor = 4,
+                           scale_factor = 8,
                            line_color = "black",
                            fill_color = "black") {
 
@@ -21,23 +21,36 @@ plot_ridgelines <- function(elevation = NULL,
   plot_data <- calculate_ridgelines(elevation, n_lines)
   max_elevation <- max(plot_data$elevation)
 
+  # Get the CRS from the elevation raster
+  elevation_crs <- sf::st_crs(elevation)
+
+  # Calculate the geographic distance between lines
+  y_coords <- unique(plot_data$y)[1:2]
+  x_mid <- mean(plot_data$x)
+  line_spacing <- sf::st_distance(
+    sf::st_point(c(x_mid, y_coords[1])) |> sf::st_sfc(crs = elevation_crs),
+    sf::st_point(c(x_mid, y_coords[2])) |> sf::st_sfc(crs = elevation_crs)
+  )
+
+  # Adjust scale factor based on geographic distance
+  adjusted_scale <- scale_factor * as.numeric(line_spacing)
+
   # Create the plot
   ggplot2::ggplot(plot_data,
                   ggplot2::aes(x = x,
-                              y = group,
-                              height = (elevation / max_elevation) * scale_factor,
+                              y = y,
+                              height = (elevation / max_elevation) * adjusted_scale,
                               group = group)) +
     ggridges::geom_ridgeline(color = line_color,
                             fill = scales::alpha(fill_color, 0.1),
                             show.legend = FALSE) +
     ggplot2::theme_minimal() +
     ggplot2::theme(
-      panel.grid = ggplot2::element_blank(),
-      axis.text.y = ggplot2::element_blank(),
-      axis.ticks.y = ggplot2::element_blank()
+      panel.grid = ggplot2::element_blank()
     ) +
+    ggplot2::coord_sf(crs = elevation_crs) +
     ggplot2::labs(
       x = "Longitude",
-      y = NULL
+      y = "Latitude"
     )
 }
