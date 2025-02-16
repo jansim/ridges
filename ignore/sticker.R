@@ -31,7 +31,7 @@ sticker(
   s_height = 1.6,
   h_fill = "#1a1a1a",
   h_color = "white",
-  filename = "inst/figures/logo.png",
+  filename = "man/figures/logo.png",
   white_around_sticker = TRUE,
   dpi = 300
 )
