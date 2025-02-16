@@ -1,12 +1,14 @@
 #' Calculate ridgeline data from elevation
 #'
 #' Takes elevation data and calculates the data needed for plotting ridgelines
-#' by sampling the elevation at regular y-intervals.
+#' by sampling the elevation at regular y-intervals. You will only need this
+#' function if you want to create your own custom plots from the ground up.
 #'
 #' @param elevation A raster object containing elevation data, or NULL to use last elevation
 #' @param n_lines Number of ridgelines to calculate
 #' @return A data frame containing the ridgeline data with columns x, y, elevation, and group
-#' @keywords internal
+#' @seealso \code{\link{plot_ridgelines}} and \code{\link{plot_ridgelines_3d}}
+#' @export
 #'
 calculate_ridgelines <- function(elevation = NULL, n_lines = 30) {
   # Use last elevation if none provided

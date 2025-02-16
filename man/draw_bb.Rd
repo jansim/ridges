@@ -29,4 +29,5 @@ bb_innsbruck <- draw_bb("Innsbruck, Austria")
 # Use the returned bounding box to get elevation data
 elevation <- get_elevation(bb_innsbruck)
 }
+#
 }

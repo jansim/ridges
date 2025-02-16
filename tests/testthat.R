@@ -8,5 +8,6 @@
 
 library(testthat)
 library(ridges)
+library(raster)
 
 test_check("ridges")
