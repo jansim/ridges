@@ -2,10 +2,24 @@
 
 #' Get elevation data for a bounding box
 #'
+#' Retrieves elevation data for a specified geographic area using the elevatr package.
+#' The data is returned as a raster object that can be used with the plotting
+#' functions in this package.
+#'
 #' @param bb A bounding box object (sf::bbox) or NULL to use the last drawn bounding box
-#' @param z Zoom level for elevation data (1-14, higher means more detail)
+#' @param z Zoom level for elevation data (1-14, higher means more detail). Default is 9,
+#'   which provides a good balance between detail and download size.
 #' @return A raster object containing elevation data
 #' @export
+#'
+#' @examples
+#' # Using the included Wilder Kaiser bounding box
+#' elevation <- get_elevation(bb_wilder_kaiser)
+#' plot_elevation()
+#'
+#' # Using a higher zoom level for more detail
+#' detailed_elevation <- get_elevation(bb_wilder_kaiser, z = 12)
+#' plot_elevation()
 #'
 get_elevation <- function(bb = NULL, z = 9) {
   # Use last drawn bounding box if none provided

@@ -1,11 +1,21 @@
 #' Plot elevation data as a heatmap
 #'
+#' Creates a heatmap visualization of elevation data. This function provides a
+#' quick way to visualize the terrain in your area of interest.
+#'
 #' @param elevation A raster object containing elevation data, as returned by get_elevation()
 #' @param title Optional title for the plot
 #' @param low_color Color for lowest elevations (default: "darkblue")
 #' @param high_color Color for highest elevations (default: "white")
-#' @return A ggplot object
+#' @return A ggplot object that can be further customized using ggplot2 functions
 #' @export
+#'
+#' @examples
+#' # Create a basic elevation plot
+#' plot_elevation(ele_wilder_kaiser)
+#'
+#' # Customize colors
+#' plot_elevation(ele_wilder_kaiser, low_color = "darkgreen", high_color = "yellow")
 #'
 plot_elevation <- function(elevation = NULL,
                            low_color = "darkblue",

@@ -1,12 +1,29 @@
 # The last bounding box drawn by the user.
 .last_bb <- NULL
 
-#' Draw a bounding box on an interactive map in a webbrowser.
+#' Draw a bounding box on an interactive map in a web browser
 #'
-#' @param start_place_name optional address of a place to initially center the map on
+#' Opens an interactive map interface in your web browser where you can draw a rectangular
+#' bounding box to select an area of interest. Use the rectangle tool in the top-right
+#' corner to draw the box, then click 'Submit' to return the selection.
 #'
-#' @return selected bounding box
+#' @param start_place_name Optional address or place name to initially center the map on.
+#'   This helps you quickly navigate to your area of interest.
+#'
+#' @return A bounding box object (sf::bbox) that can be used with get_elevation()
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' # Open map centered on default location
+#' bb <- draw_bb()
+#'
+#' # Open map centered on a specific location
+#' bb_innsbruck <- draw_bb("Innsbruck, Austria")
+#'
+#' # Use the returned bounding box to get elevation data
+#' elevation <- get_elevation(bb_innsbruck)
+#' }
 #
 draw_bb <- function(start_place_name = NULL) {
   ui <- shiny::fluidPage(

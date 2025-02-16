@@ -1,16 +1,31 @@
 #' Plot elevation data as ridgelines
 #'
-#' Creates a Joy Division style visualization of elevation data, showing elevation
-#' profiles as stacked ridgelines.
+#' Creates topographical elevation ridgeline plots, inspired by the iconic Joy Division
+#' album cover.
 #'
 #' @param elevation A raster object containing elevation data, as returned by get_elevation()
-#' @param n_lines Number of ridgelines to draw (default: 20)
-#' @param scale_factor Scaling factor for the height of ridgelines (default: 1)
-#' @param line_color Color of the ridgelines (default: "black")
-#' @param fill_color Fill color below the lines (default: "black", with alpha = 0.1)
+#' @param n_lines Number of ridgelines to draw (default: 30). More lines create a denser
+#'   visualization but may increase plotting time.
+#' @param scale_factor Scaling factor for the height of ridgelines (default: 10). Higher
+#'   values make the elevation differences more pronounced.
+#' @param line_color Color of the ridgelines (default: "#000000")
+#' @param fill_color Fill color below the lines (default: "#0000001A", semi-transparent black)
 #' @param linewidth Width of the ridgelines (default: 0.5)
-#' @return A ggplot object
+#' @return A ggplot object that can be further customized using ggplot2 functions
 #' @export
+#'
+#' @examples
+#' # Create a basic ridgeline plot
+#' plot_ridgelines(ele_wilder_kaiser)
+#'
+#' # Customize appearance
+#' plot_ridgelines(
+#'   ele_wilder_kaiser,
+#'   n_lines = 40,
+#'   scale_factor = 15,
+#'   line_color = "navy",
+#'   fill_color = "#0000FF1A"
+#' )
 #'
 plot_ridgelines <- function(elevation = NULL,
                             n_lines = 30,
