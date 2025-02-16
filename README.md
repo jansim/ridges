@@ -1,24 +1,13 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # ridges <img src="inst/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-Download topographical elevation data for any location in the world and visualize it.
+Download topographical elevation data for any location in the world and
+visualize it.
 
 ## Installation
 
@@ -33,13 +22,14 @@ remotes::install_github("jansim/ridges")
 
 The package workflow is simple:
 
-1. Select an area using the interactive map
-2. Get elevation data for that area
-3. Visualize the data
+1.  Select an area using the interactive map
+2.  Get elevation data for that area
+3.  Visualize the data
 
-Here's a basic example of the different kinds of visualizations available.
+Here’s a basic example of the different kinds of visualizations
+available.
 
-```{r example, message=FALSE, warning=FALSE}
+``` r
 library(ridges)
 
 # We'll use the included elevation data for the Wilder Kaiser mountain range
@@ -51,14 +41,29 @@ elevation <- ele_wilder_kaiser
 
 # Create an elevation-based heatmap to check the data
 plot_elevation(elevation)
+```
+
+<img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
 # Create an elevation-based ridgeline plot
 plot_ridgelines(elevation)
+```
+
+<img src="man/figures/README-example-2.png" width="100%" />
+
+``` r
 # Get the classic Joy Division Album Cover style
 plot_ridgelines(
   ele_wilder_kaiser,
   fill_color = NA,
   scale_factor = 12
 )
+```
+
+<img src="man/figures/README-example-3.png" width="100%" />
+
+``` r
 # Vary the styling of the ridgelines
 plot_ridgelines(
   ele_wilder_kaiser,
@@ -67,6 +72,11 @@ plot_ridgelines(
   background_color = "white",
   scale_factor = 8
 )
+```
+
+<img src="man/figures/README-example-4.png" width="100%" />
+
+``` r
 # Get creative!
 plot_ridgelines(
   ele_wilder_kaiser,
@@ -77,11 +87,14 @@ plot_ridgelines(
 )
 ```
 
+<img src="man/figures/README-example-5.png" width="100%" />
+
 ### Getting Your Own Data
 
-For interactive area selection, you can use `draw_bb()` to select an area on a map in your browser:
+For interactive area selection, you can use `draw_bb()` to select an
+area on a map in your browser:
 
-```{r eval=FALSE}
+``` r
 # Open an interactive map to select area
 bb <- draw_bb("Innsbruck, Austria")  # optionally center on a location
 
