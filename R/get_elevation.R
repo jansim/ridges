@@ -1,3 +1,5 @@
+.last_elevation <- NULL
+
 #' Get elevation data for a bounding box
 #'
 #' @param bb A bounding box object (sf::bbox) or NULL to use the last drawn bounding box
@@ -31,6 +33,9 @@ get_elevation <- function(bb = NULL, z = 9) {
     z = z,
     clip = "locations"
   )
+
+  # Save last elevation data for potential later use
+  .last_elevation <<- elevation
 
   return(elevation)
 }
