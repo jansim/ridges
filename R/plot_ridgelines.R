@@ -14,8 +14,8 @@
 plot_ridgelines <- function(elevation = NULL,
                             n_lines = 30,
                             scale_factor = 15,
-                            line_color = "black",
-                            fill_color = "black") {
+                            line_color = "#000000",
+                            fill_color = "#0000001A") {
   # Calculate ridgeline data
   plot_data <- calculate_ridgelines(elevation, n_lines)
   max_elevation <- max(plot_data$elevation)
@@ -46,7 +46,7 @@ plot_ridgelines <- function(elevation = NULL,
   ) +
     ggridges::geom_ridgeline(
       color = line_color,
-      fill = scales::alpha(fill_color, 0.1),
+      fill = fill_color,
       show.legend = FALSE
     ) +
     ggplot2::theme_minimal() +
