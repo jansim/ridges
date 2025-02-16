@@ -8,31 +8,49 @@
 #'   visualization but may increase plotting time.
 #' @param scale_factor Scaling factor for the height of ridgelines (default: 10). Higher
 #'   values make the elevation differences more pronounced.
-#' @param line_color Color of the ridgelines (default: "#000000")
-#' @param fill_color Fill color below the lines (default: "#0000001A", semi-transparent black)
+#' @param line_color Color of the ridgelines (default: "white")
+#' @param fill_color Fill color below the lines (default: "#FFFFFF1A", semi-transparent white)
 #' @param linewidth Width of the ridgelines (default: 0.5)
+#' @param background_color Background color of the plot (default: "black")
 #' @return A ggplot object that can be further customized using ggplot2 functions
 #' @export
 #'
 #' @examples
-#' # Create a basic ridgeline plot
+#' # Default style (white on black)
 #' plot_ridgelines(ele_wilder_kaiser)
 #'
-#' # Customize appearance
+#' # No fill, just lines
 #' plot_ridgelines(
 #'   ele_wilder_kaiser,
-#'   n_lines = 40,
-#'   scale_factor = 15,
-#'   line_color = "navy",
-#'   fill_color = "#0000FF1A"
+#'   fill_color = NA,
+#'   scale_factor = 12
+#' )
+#'
+#' # Classic black on white style
+#' plot_ridgelines(
+#'   ele_wilder_kaiser,
+#'   line_color = "#000000",
+#'   fill_color = "white",
+#'   background_color = "white",
+#'   scale_factor = 8
+#' )
+#'
+#' # Get creative!
+#' plot_ridgelines(
+#'   ele_wilder_kaiser,
+#'   n_lines = 35,
+#'   line_color = "#FF4081",
+#'   fill_color = "#FF408133",
+#'   background_color = "#1A237E"
 #' )
 #'
 plot_ridgelines <- function(elevation = NULL,
                             n_lines = 30,
                             scale_factor = 10,
-                            line_color = "#000000",
-                            fill_color = "#0000001A",
-                            linewidth = 0.5) {
+                            line_color = "white",
+                            fill_color = "#FFFFFF1A",
+                            linewidth = 0.5,
+                            background_color = "black") {
   # Calculate ridgeline data
   plot_data <- calculate_ridgelines(elevation, n_lines)
   max_elevation <- max(plot_data$elevation)
@@ -69,7 +87,11 @@ plot_ridgelines <- function(elevation = NULL,
     ) +
     ggplot2::theme_minimal() +
     ggplot2::theme(
-      panel.grid = ggplot2::element_blank()
+      panel.grid = ggplot2::element_blank(),
+      plot.background = ggplot2::element_rect(fill = background_color, color = NA),
+      panel.background = ggplot2::element_rect(fill = background_color, color = NA),
+      axis.text = ggplot2::element_text(color = line_color),
+      axis.title = ggplot2::element_text(color = line_color)
     ) +
     ggplot2::coord_sf(crs = elevation_crs) +
     ggplot2::labs(

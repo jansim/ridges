@@ -8,9 +8,10 @@ plot_ridgelines(
   elevation = NULL,
   n_lines = 30,
   scale_factor = 10,
-  line_color = "#000000",
-  fill_color = "#0000001A",
-  linewidth = 0.5
+  line_color = "white",
+  fill_color = "#FFFFFF1A",
+  linewidth = 0.5,
+  background_color = "black"
 )
 }
 \arguments{
@@ -22,11 +23,13 @@ visualization but may increase plotting time.}
 \item{scale_factor}{Scaling factor for the height of ridgelines (default: 10). Higher
 values make the elevation differences more pronounced.}
 
-\item{line_color}{Color of the ridgelines (default: "#000000")}
+\item{line_color}{Color of the ridgelines (default: "white")}
 
-\item{fill_color}{Fill color below the lines (default: "#0000001A", semi-transparent black)}
+\item{fill_color}{Fill color below the lines (default: "#FFFFFF1A", semi-transparent white)}
 
 \item{linewidth}{Width of the ridgelines (default: 0.5)}
+
+\item{background_color}{Background color of the plot (default: "black")}
 }
 \value{
 A ggplot object that can be further customized using ggplot2 functions
@@ -36,16 +39,32 @@ Creates topographical elevation ridgeline plots, inspired by the iconic Joy Divi
 album cover.
 }
 \examples{
-# Create a basic ridgeline plot
+# Default style (white on black)
 plot_ridgelines(ele_wilder_kaiser)
 
-# Customize appearance
+# No fill, just lines
 plot_ridgelines(
   ele_wilder_kaiser,
-  n_lines = 40,
-  scale_factor = 15,
-  line_color = "navy",
-  fill_color = "#0000FF1A"
+  fill_color = NA,
+  scale_factor = 12
+)
+
+# Classic black on white style
+plot_ridgelines(
+  ele_wilder_kaiser,
+  line_color = "#000000",
+  fill_color = "white",
+  background_color = "white",
+  scale_factor = 8
+)
+
+# Get creative!
+plot_ridgelines(
+  ele_wilder_kaiser,
+  n_lines = 35,
+  line_color = "#FF4081",
+  fill_color = "#FF408133",
+  background_color = "#1A237E"
 )
 
 }
