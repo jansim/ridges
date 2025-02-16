@@ -16,6 +16,9 @@ A data frame containing the ridgeline data with columns x, y, elevation, and gro
 }
 \description{
 Takes elevation data and calculates the data needed for plotting ridgelines
-by sampling the elevation at regular y-intervals.
+by sampling the elevation at regular y-intervals. You will only need this
+function if you want to create your own custom plots from the ground up.
 }
-\keyword{internal}
+\seealso{
+\code{\link{plot_ridgelines}} and \code{\link{plot_ridgelines_3d}}
+}
