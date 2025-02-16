@@ -20,3 +20,6 @@ Imports:
     terra,
     ggridges,
     scales
+Depends: 
+    R (>= 3.5)
+LazyData: true
