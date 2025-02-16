@@ -12,11 +12,10 @@
 #' @export
 #'
 plot_ridgelines <- function(elevation = NULL,
-                           n_lines = 30,
-                           scale_factor = 8,
-                           line_color = "black",
-                           fill_color = "black") {
-
+                            n_lines = 30,
+                            scale_factor = 8,
+                            line_color = "black",
+                            fill_color = "black") {
   # Calculate ridgeline data
   plot_data <- calculate_ridgelines(elevation, n_lines)
   max_elevation <- max(plot_data$elevation)
@@ -36,14 +35,20 @@ plot_ridgelines <- function(elevation = NULL,
   adjusted_scale <- scale_factor * as.numeric(line_spacing)
 
   # Create the plot
-  ggplot2::ggplot(plot_data,
-                  ggplot2::aes(x = x,
-                              y = y,
-                              height = (elevation / max_elevation) * adjusted_scale,
-                              group = group)) +
-    ggridges::geom_ridgeline(color = line_color,
-                            fill = scales::alpha(fill_color, 0.1),
-                            show.legend = FALSE) +
+  ggplot2::ggplot(
+    plot_data,
+    ggplot2::aes(
+      x = x,
+      y = y,
+      height = (elevation / max_elevation) * adjusted_scale,
+      group = group
+    )
+  ) +
+    ggridges::geom_ridgeline(
+      color = line_color,
+      fill = scales::alpha(fill_color, 0.1),
+      show.legend = FALSE
+    ) +
     ggplot2::theme_minimal() +
     ggplot2::theme(
       panel.grid = ggplot2::element_blank()

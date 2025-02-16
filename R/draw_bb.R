@@ -8,7 +8,7 @@
 #' @return selected bounding box
 #' @export
 #
-draw_bb <- function (start_place_name = NULL) {
+draw_bb <- function(start_place_name = NULL) {
   ui <- shiny::fluidPage(
     "Use the square button at the top-right to draw a rectangle bounding box, press 'Submit' to return the value.",
     leaflet::leafletOutput("map"),
@@ -23,7 +23,7 @@ draw_bb <- function (start_place_name = NULL) {
     output$boundingBox <- NULL
     output$info <- NULL
 
-    on_feature_change <- function (feat) {
+    on_feature_change <- function(feat) {
       coords <- unlist(feat$geometry$coordinates)
       coords <- matrix(coords, ncol = 2, byrow = TRUE)
       poly <- sf::st_sf(sf::st_sfc(sf::st_polygon(list(coords))), crs = 4326)

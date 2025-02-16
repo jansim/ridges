@@ -8,8 +8,8 @@
 #' @export
 #'
 plot_elevation <- function(elevation = NULL,
-                          low_color = "darkblue",
-                          high_color = "white") {
+                           low_color = "darkblue",
+                           high_color = "white") {
   # Use last elevation if none provided
   if (is.null(elevation)) {
     if (is.null(.last_elevation)) {

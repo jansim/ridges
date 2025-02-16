@@ -22,9 +22,11 @@ calculate_ridgelines <- function(elevation = NULL, n_lines = 30) {
   colnames(elevation_df)[3] <- "elevation"
 
   # Create sequence of y positions for sampling
-  y_seq <- seq(from = min(elevation_df$y),
-               to = max(elevation_df$y),
-               length.out = n_lines)
+  y_seq <- seq(
+    from = min(elevation_df$y),
+    to = max(elevation_df$y),
+    length.out = n_lines
+  )
 
   # Create empty list to store ridgeline data
   ridgeline_data <- list()
