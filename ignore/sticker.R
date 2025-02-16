@@ -1,6 +1,7 @@
 library(hexSticker)
 library(terra)
 library(sf)
+library(ridges)
 
 # Get elevation data
 elevation <- get_elevation(bb_wilder_kaiser)
