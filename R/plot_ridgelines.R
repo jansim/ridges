@@ -13,7 +13,7 @@
 #'
 plot_ridgelines <- function(elevation = NULL,
                             n_lines = 30,
-                            scale_factor = 8,
+                            scale_factor = 15,
                             line_color = "black",
                             fill_color = "black") {
   # Calculate ridgeline data
@@ -32,7 +32,7 @@ plot_ridgelines <- function(elevation = NULL,
   )
 
   # Adjust scale factor based on geographic distance
-  adjusted_scale <- scale_factor * as.numeric(line_spacing)
+  adjusted_scale <- scale_factor / as.numeric(line_spacing)
 
   # Create the plot
   ggplot2::ggplot(
