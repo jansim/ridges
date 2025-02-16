@@ -15,4 +15,6 @@ Imports:
     shiny,
     leaflet,
     leaflet.extras,
-    osmdata
+    osmdata,
+    ggplot2,
+    terra

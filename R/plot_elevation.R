@@ -8,7 +8,6 @@
 #' @export
 #'
 plot_elevation <- function(elevation = NULL,
-                          title = "Elevation Heatmap",
                           low_color = "darkblue",
                           high_color = "white") {
   # Use last elevation if none provided
@@ -23,6 +22,9 @@ plot_elevation <- function(elevation = NULL,
   elevation_df <- terra::as.data.frame(elevation, xy = TRUE)
   colnames(elevation_df)[3] <- "elevation"
 
+  # Get the CRS from the elevation raster
+  elevation_crs <- terra::crs(elevation)
+
   # Create the plot
   ggplot2::ggplot(elevation_df, ggplot2::aes(x = x, y = y, fill = elevation)) +
     ggplot2::geom_raster() +
@@ -31,10 +33,9 @@ plot_elevation <- function(elevation = NULL,
       high = high_color,
       name = "Elevation (m)"
     ) +
-    ggplot2::coord_equal() +
+    ggplot2::coord_sf(crs = elevation_crs) +
     ggplot2::theme_minimal() +
     ggplot2::labs(
-      title = title,
       x = "Longitude",
       y = "Latitude"
     )
