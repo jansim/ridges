@@ -1,9 +1,9 @@
 Package: ridges
-Title: What the Package Does (One Line, Title Case)
+Title: Download Elevation Data For Anywhere In The World And Visualize It
 Version: 0.0.0.9000
 Authors@R:
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Jan", "Simson", , "jan.simson@lmu.de", role = c("aut", "cre"))
+Description: The ridges package allows downloading topographical elevation data and visualizing it using various plots. Elevation data can be visualized as ridgeline plots and topographical heat maps.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -19,10 +19,10 @@ Imports:
     terra,
     ggridges,
     scales
-Depends: 
+Depends:
     R (>= 3.5)
 LazyData: true
 URL: http://simson.io/ridges/
-Suggests: 
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
