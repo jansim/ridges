@@ -17,14 +17,14 @@ Imports:
     osmdata,
     ggplot2,
     terra,
-    ggridges,
-    scales
+    ggridges
 Depends:
     R (>= 3.5)
 LazyData: true
 URL: http://simson.io/ridges/, https://github.com/jansim/ridges
 Suggests:
     testthat (>= 3.0.0),
+    raster,
     vdiffr
 Config/testthat/edition: 3
 BugReports: https://github.com/jansim/ridges/issues

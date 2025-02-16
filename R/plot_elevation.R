@@ -4,7 +4,6 @@
 #' quick way to visualize the terrain in your area of interest.
 #'
 #' @param elevation A raster object containing elevation data, as returned by get_elevation()
-#' @param title Optional title for the plot
 #' @param low_color Color for lowest elevations (default: "darkblue")
 #' @param high_color Color for highest elevations (default: "white")
 #' @return A ggplot object that can be further customized using ggplot2 functions

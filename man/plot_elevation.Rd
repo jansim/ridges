@@ -12,8 +12,6 @@ plot_elevation(elevation = NULL, low_color = "darkblue", high_color = "white")
 \item{low_color}{Color for lowest elevations (default: "darkblue")}
 
 \item{high_color}{Color for highest elevations (default: "white")}
-
-\item{title}{Optional title for the plot}
 }
 \value{
 A ggplot object that can be further customized using ggplot2 functions
