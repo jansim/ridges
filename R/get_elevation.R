@@ -24,10 +24,10 @@
 get_elevation <- function(bb = NULL, z = 9) {
   # Use last drawn bounding box if none provided
   if (is.null(bb)) {
-    if (is.null(.last_bb)) {
-      stop("No bounding box provided and no last drawn bounding box available")
+    if (is.null(get_last_bb())) {
+      stop("No bounding box available. Please run draw_bb() first.")
     }
-    bb <- .last_bb
+    bb <- get_last_bb()
   }
 
   # Validate and normalize longitude to -180 to 180 range
@@ -49,7 +49,7 @@ get_elevation <- function(bb = NULL, z = 9) {
   )
 
   # Save last elevation data for potential later use
-  .last_elevation <<- elevation
+  set_last_ele(elevation)
 
   return(elevation)
 }

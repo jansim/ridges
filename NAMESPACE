@@ -2,5 +2,7 @@
 
 export(draw_bb)
 export(get_elevation)
+export(get_last_bb)
+export(get_last_ele)
 export(plot_elevation)
 export(plot_ridgelines)

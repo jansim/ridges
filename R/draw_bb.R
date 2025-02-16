@@ -99,7 +99,7 @@ draw_bb <- function(start_place_name = NULL) {
 
     # Stop app and return bounding box when clicking "Submit"
     shiny::observeEvent(input$submit, {
-      .last_bb <<- bb
+      set_last_bb(bb)
 
       shiny::stopApp(returnValue = bb)
     })

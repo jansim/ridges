@@ -11,10 +11,10 @@
 calculate_ridgelines <- function(elevation = NULL, n_lines = 30) {
   # Use last elevation if none provided
   if (is.null(elevation)) {
-    if (is.null(.last_elevation)) {
-      stop("No elevation data provided and no last elevation data available")
+    if (is.null(get_last_ele())) {
+      stop("No elevation data available. Please run get_elevation() first.")
     }
-    elevation <- .last_elevation
+    elevation <- get_last_ele()
   }
 
   # Convert raster to data frame
