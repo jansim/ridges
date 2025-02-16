@@ -2,16 +2,8 @@ library(hexSticker)
 library(terra)
 library(sf)
 
-# Get some sample elevation data - let's use Mount Rainier as an example
-rainier_bbox <- c(
-  xmin = -347.87315,
-  ymin = 47.52787,
-  xmax = -347.57103,
-  ymax = 47.62884
-)
-
 # Get elevation data
-elevation <- get_elevation(rainier_bbox)
+elevation <- get_elevation(bb_wilder_kaiser)
 
 # Create the ridgeline plot with specific styling for the sticker
 p <- plot_ridgelines(
