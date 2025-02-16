@@ -1,3 +1,6 @@
+# The last bounding box drawn by the user.
+.last_bb <- NULL
+
 #' Draw a bounding box on an interactive map in a webbrowser.
 #'
 #' @param start_place_name optional address of a place to initially center the map on
@@ -79,6 +82,8 @@ draw_bb <- function (start_place_name = NULL) {
 
     # Stop app and return bounding box when clicking "Submit"
     shiny::observeEvent(input$submit, {
+      .last_bb <<- bb
+
       shiny::stopApp(returnValue = bb)
     })
   }
