@@ -1,0 +1,18 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://simson.io/ridges/404.html</loc></url>
+<url><loc>http://simson.io/ridges/LICENSE-text.html</loc></url>
+<url><loc>http://simson.io/ridges/LICENSE.html</loc></url>
+<url><loc>http://simson.io/ridges/authors.html</loc></url>
+<url><loc>http://simson.io/ridges/index.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/calculate_ridgelines.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/draw_bb.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/get_elevation.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/get_last_bb.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/get_last_ele.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/index.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/plot_elevation.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/plot_ridgelines.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/set_last_bb.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/set_last_ele.html</loc></url>
+</urlset>
+
