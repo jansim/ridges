@@ -3,12 +3,9 @@ library(terra)
 library(sf)
 library(ridges)
 
-# Get elevation data
-elevation <- get_elevation(bb_wilder_kaiser)
-
 # Create the ridgeline plot with specific styling for the sticker
 p <- plot_ridgelines(
-  elevation = elevation,
+  elevation = ele_wilder_kaiser,
   scale_factor = 13,
   line_color = "#FFFFFF",
   fill_color = "#FFFFFF00",
