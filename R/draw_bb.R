@@ -24,7 +24,7 @@
 #' # Use the returned bounding box to get elevation data
 #' elevation <- get_elevation(bb_innsbruck)
 #' }
-#
+#' #
 draw_bb <- function(start_place_name = NULL) {
   ui <- shiny::fluidPage(
     "Use the square button at the top-right to draw a rectangle bounding box, press 'Submit' to return the value.",

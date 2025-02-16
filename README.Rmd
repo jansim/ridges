@@ -83,7 +83,7 @@ For interactive area selection, you can use `draw_bb()` to select an area on a m
 
 ```{r eval=FALSE}
 # Open an interactive map to select area
-bb <- draw_bb("Innsbruck, Austria")  # optionally center on a location
+bb <- draw_bb("Innsbruck, Austria") # optionally center on a location
 
 # Get elevation data for the selected area
 elevation <- get_elevation(bb)

@@ -96,7 +96,7 @@ area on a map in your browser:
 
 ``` r
 # Open an interactive map to select area
-bb <- draw_bb("Innsbruck, Austria")  # optionally center on a location
+bb <- draw_bb("Innsbruck, Austria") # optionally center on a location
 
 # Get elevation data for the selected area
 elevation <- get_elevation(bb)
