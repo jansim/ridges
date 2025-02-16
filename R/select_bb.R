@@ -6,13 +6,13 @@
 #' @export
 #
 draw_bounding_box <- function (start_place_name = NULL) {
-  ui <- fluidPage(
+  ui <- shiny::fluidPage(
     "Use the square button at the top-right to draw a rectangle bounding box, press 'Submit' to return the value.",
-    leafletOutput("map"),
-    HTML("<br><br>"),
-    tableOutput("boundingBox"),
-    tableOutput("info"),
-    actionButton("submit", "Submit", icon("paper-plane"), class = "btn btn-primary")
+    leaflet::leafletOutput("map"),
+    shiny::HTML("<br><br>"),
+    shiny::tableOutput("boundingBox"),
+    shiny::tableOutput("info"),
+    shiny::actionButton("submit", "Submit", shiny::icon("paper-plane"), class = "btn btn-primary")
   )
 
   server <- function(input, output, session) {
@@ -22,43 +22,43 @@ draw_bounding_box <- function (start_place_name = NULL) {
 
     on_feature_change <- function (feat) {
       coords <- unlist(feat$geometry$coordinates)
-      coords <- matrix(coords, ncol = 2, byrow = T)
-      poly <- st_sf(st_sfc(st_polygon(list(coords))), crs = 4326)
+      coords <- matrix(coords, ncol = 2, byrow = TRUE)
+      poly <- sf::st_sf(sf::st_sfc(sf::st_polygon(list(coords))), crs = 4326)
 
       # Safe bounding box for returning
-      bb <<- st_bbox(poly)
+      bb <<- sf::st_bbox(poly)
 
       # Safe as list for rendering in shiny
       bb_df <- as.data.frame(as.list(bb))
-      output$boundingBox <- renderTable(bb_df)
+      output$boundingBox <- shiny::renderTable(bb_df)
       width <- bb_df$xmax - bb_df$xmin
       height <- bb_df$ymax - bb_df$ymin
-      output$info <- renderTable(data.frame(
+      output$info <- shiny::renderTable(data.frame(
         aspectRatio = width / height,
         width = width,
         height = height
       ))
     }
 
-    output$map <- renderLeaflet({
-      m <- leaflet() %>%
-        addTiles() %>%
-        addDrawToolbar(
+    output$map <- leaflet::renderLeaflet({
+      m <- leaflet::leaflet() |>
+        leaflet::addTiles() |>
+        leaflet.extras::addDrawToolbar(
           position = "topright",
-          singleFeature = T,
-          editOptions = editToolbarOptions(remove = F),
+          singleFeature = TRUE,
+          editOptions = leaflet.extras::editToolbarOptions(remove = FALSE),
           # Disable everything but rectangles
-          polylineOptions = F,
-          circleOptions = F,
-          markerOptions = F,
-          circleMarkerOptions = F,
-          polygonOptions = F
+          polylineOptions = FALSE,
+          circleOptions = FALSE,
+          markerOptions = FALSE,
+          circleMarkerOptions = FALSE,
+          polygonOptions = FALSE
         )
 
       if (!is.null(start_place_name)) {
-        start_bounds <- getbb(start_place_name)
+        start_bounds <- osmdata::getbb(start_place_name)
         if (sum(is.na(start_bounds)) == 0) {
-          m <- m %>% fitBounds(start_bounds["x", "min"], start_bounds["y", "min"], start_bounds["x", "max"], start_bounds["y", "max"])
+          m <- m |> leaflet::fitBounds(start_bounds["x", "min"], start_bounds["y", "min"], start_bounds["x", "max"], start_bounds["y", "max"])
         } else {
           message(paste("Couldn't find place", start_place_name))
         }
@@ -67,23 +67,21 @@ draw_bounding_box <- function (start_place_name = NULL) {
       return(m)
     })
 
-    observeEvent(input$map_draw_new_feature, {
+    shiny::observeEvent(input$map_draw_new_feature, {
       feat <- input$map_draw_new_feature
       on_feature_change(feat)
     })
 
-    observeEvent(input$map_draw_edited_features, {
+    shiny::observeEvent(input$map_draw_edited_features, {
       feat <- input$map_draw_edited_features$features[[1]]
       on_feature_change(feat)
     })
 
     # Stop app and return bounding box when clicking "Submit"
-    observeEvent(input$submit, {
-      stopApp(returnValue = bb)
+    shiny::observeEvent(input$submit, {
+      shiny::stopApp(returnValue = bb)
     })
   }
 
-  return(runApp(shinyApp(ui, server)))
+  return(shiny::runApp(shiny::shinyApp(ui, server)))
 }
-
-
