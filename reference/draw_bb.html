@@ -43,7 +43,7 @@ corner to draw the box, then click 'Submit' to return the selection.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">draw_bb</span><span class="op">(</span>start_place_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">draw_bb</span><span class="op">(</span>start_place_name <span class="op">=</span> <span class="cn">NULL</span>, terrain <span class="op">=</span> <span class="cn">TRUE</span>, provider <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -53,6 +53,15 @@ corner to draw the box, then click 'Submit' to return the selection.</p>
 <dl><dt id="arg-start-place-name">start_place_name<a class="anchor" aria-label="anchor" href="#arg-start-place-name"></a></dt>
 <dd><p>Optional address or place name to initially center the map on.
 This helps you quickly navigate to your area of interest.</p></dd>
+
+
+<dt id="arg-terrain">terrain<a class="anchor" aria-label="anchor" href="#arg-terrain"></a></dt>
+<dd><p>Logical, whether to use OpenTopoMap tiles (default: TRUE)</p></dd>
+
+
+<dt id="arg-provider">provider<a class="anchor" aria-label="anchor" href="#arg-provider"></a></dt>
+<dd><p>Optional custom tile provider. If specified, overrides the terrain parameter.
+See leaflet::providers for available providers.</p></dd>
 
 </dl></div>
     <div class="section level2">
