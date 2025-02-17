@@ -53,6 +53,13 @@ plot_ridgelines(elevation)
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
+# Create a contour plot
+plot_contours(ele_wilder_kaiser)
+```
+
+<img src="man/figures/README-example-3.png" width="100%" />
+
+``` r
 # Get the classic Joy Division Album Cover style
 plot_ridgelines(
   ele_wilder_kaiser,
@@ -61,7 +68,7 @@ plot_ridgelines(
 )
 ```
 
-<img src="man/figures/README-example-3.png" width="100%" />
+<img src="man/figures/README-example-4.png" width="100%" />
 
 ``` r
 # Vary the styling of the ridgelines
@@ -74,10 +81,21 @@ plot_ridgelines(
 )
 ```
 
-<img src="man/figures/README-example-4.png" width="100%" />
+<img src="man/figures/README-example-5.png" width="100%" />
 
 ``` r
 # Get creative!
+plot_contours(
+  ele_wilder_kaiser,
+  color_by_elevation = "both",
+  low_color = "#1A237E",
+  high_color = "#FF4081"
+) + ggplot2::theme_void()
+```
+
+<img src="man/figures/README-example-6.png" width="100%" />
+
+``` r
 plot_ridgelines(
   ele_wilder_kaiser,
   n_lines = 35,
@@ -87,7 +105,7 @@ plot_ridgelines(
 )
 ```
 
-<img src="man/figures/README-example-5.png" width="100%" />
+<img src="man/figures/README-example-7.png" width="100%" />
 
 ### Getting Your Own Data
 

@@ -53,6 +53,8 @@ elevation <- ele_wilder_kaiser
 plot_elevation(elevation)
 # Create an elevation-based ridgeline plot
 plot_ridgelines(elevation)
+# Create a contour plot
+plot_contours(ele_wilder_kaiser)
 # Get the classic Joy Division Album Cover style
 plot_ridgelines(
   ele_wilder_kaiser,
@@ -68,6 +70,12 @@ plot_ridgelines(
   scale_factor = 8
 )
 # Get creative!
+plot_contours(
+  ele_wilder_kaiser,
+  color_by_elevation = "both",
+  low_color = "#1A237E",
+  high_color = "#FF4081"
+) + ggplot2::theme_void()
 plot_ridgelines(
   ele_wilder_kaiser,
   n_lines = 35,
