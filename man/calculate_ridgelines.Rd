@@ -20,5 +20,5 @@ by sampling the elevation at regular y-intervals. You will only need this
 function if you want to create your own custom plots from the ground up.
 }
 \seealso{
-\code{\link{plot_ridgelines}} and \code{\link{plot_ridgelines_3d}}
+\code{\link{plot_ridgelines}}
 }

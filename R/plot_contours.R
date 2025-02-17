@@ -34,12 +34,6 @@
 #' # Color both lines and fill by elevation
 #' plot_contours(ele_wilder_kaiser, color_by_elevation = "both")
 #'
-#' # Use continuous fill colors
-#' plot_contours(ele_wilder_kaiser,
-#'   color_by_elevation = "fill",
-#'   discrete_fill = FALSE
-#' )
-#'
 plot_contours <- function(elevation = NULL,
                           interval = 100,
                           line_color = "black",
@@ -91,7 +85,7 @@ plot_contours <- function(elevation = NULL,
         guide = if (color_by_elevation == "both") "none" else "colorbar",
         labels = function(breaks) {
           # Create labels showing elevation ranges
-          paste(head(breaks, -1), tail(breaks, -1), sep = "-")
+          paste(utils::head(breaks, -1), utils::tail(breaks, -1), sep = "-")
         }
       )
   }

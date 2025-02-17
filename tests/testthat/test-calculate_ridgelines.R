@@ -6,7 +6,7 @@ test_that("calculate_ridgelines returns expected data structure", {
 
   # Test structure
   expect_snapshot({
-    str(head(result))
+    str(utils::head(result))
     range(result$x)
     range(result$y)
     range(result$elevation)

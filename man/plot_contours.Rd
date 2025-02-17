@@ -59,10 +59,4 @@ plot_contours(ele_wilder_kaiser, color_by_elevation = "fill")
 # Color both lines and fill by elevation
 plot_contours(ele_wilder_kaiser, color_by_elevation = "both")
 
-# Use continuous fill colors
-plot_contours(ele_wilder_kaiser,
-  color_by_elevation = "fill",
-  discrete_fill = FALSE
-)
-
 }

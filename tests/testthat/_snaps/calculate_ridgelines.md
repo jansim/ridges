@@ -1,7 +1,7 @@
 # calculate_ridgelines returns expected data structure
 
     Code
-      str(head(result))
+      str(utils::head(result))
     Output
       'data.frame':	6 obs. of  4 variables:
        $ x        : num  12.1 12.1 12.1 12.1 12.1 ...

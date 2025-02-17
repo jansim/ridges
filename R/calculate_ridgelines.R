@@ -7,7 +7,7 @@
 #' @param elevation A raster object containing elevation data, or NULL to use last elevation
 #' @param n_lines Number of ridgelines to calculate
 #' @return A data frame containing the ridgeline data with columns x, y, elevation, and group
-#' @seealso \code{\link{plot_ridgelines}} and \code{\link{plot_ridgelines_3d}}
+#' @seealso \code{\link{plot_ridgelines}}
 #' @export
 #'
 calculate_ridgelines <- function(elevation = NULL, n_lines = 30) {
