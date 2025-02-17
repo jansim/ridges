@@ -9,6 +9,9 @@
 #'
 #' @param start_place_name Optional address or place name to initially center the map on.
 #'   This helps you quickly navigate to your area of interest.
+#' @param terrain Logical, whether to use OpenTopoMap tiles (default: TRUE)
+#' @param provider Optional custom tile provider. If specified, overrides the terrain parameter.
+#'   See leaflet::providers for available providers.
 #'
 #' @return A bounding box object (sf::bbox) that can be used with get_elevation()
 #' @export
@@ -25,7 +28,7 @@
 #' elevation <- get_elevation(bb_innsbruck)
 #' }
 #' #
-draw_bb <- function(start_place_name = NULL) {
+draw_bb <- function(start_place_name = NULL, terrain = TRUE, provider = NULL) {
   ui <- shiny::fluidPage(
     "Use the square button at the top-right to draw a rectangle bounding box, press 'Submit' to return the value.",
     leaflet::leafletOutput("map"),
@@ -61,8 +64,18 @@ draw_bb <- function(start_place_name = NULL) {
     }
 
     output$map <- leaflet::renderLeaflet({
-      m <- leaflet::leaflet() |>
-        leaflet::addTiles() |>
+      m <- leaflet::leaflet()
+
+      # Add tiles based on parameters
+      if (!is.null(provider)) {
+        m <- m |> leaflet::addProviderTiles(provider)
+      } else if (terrain) {
+        m <- m |> leaflet::addProviderTiles("OpenTopoMap")
+      } else {
+        m <- m |> leaflet::addTiles()
+      }
+
+      m <- m |>
         leaflet.extras::addDrawToolbar(
           position = "topright",
           singleFeature = TRUE,

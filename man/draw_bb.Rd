@@ -4,11 +4,16 @@
 \alias{draw_bb}
 \title{Draw a bounding box on an interactive map in a web browser}
 \usage{
-draw_bb(start_place_name = NULL)
+draw_bb(start_place_name = NULL, terrain = TRUE, provider = NULL)
 }
 \arguments{
 \item{start_place_name}{Optional address or place name to initially center the map on.
 This helps you quickly navigate to your area of interest.}
+
+\item{terrain}{Logical, whether to use OpenTopoMap tiles (default: TRUE)}
+
+\item{provider}{Optional custom tile provider. If specified, overrides the terrain parameter.
+See leaflet::providers for available providers.}
 }
 \value{
 A bounding box object (sf::bbox) that can be used with get_elevation()
