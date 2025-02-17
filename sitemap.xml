@@ -4,8 +4,11 @@
 <url><loc>http://simson.io/ridges/LICENSE.html</loc></url>
 <url><loc>http://simson.io/ridges/authors.html</loc></url>
 <url><loc>http://simson.io/ridges/index.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/bb_wilder_kaiser.html</loc></url>
 <url><loc>http://simson.io/ridges/reference/calculate_ridgelines.html</loc></url>
 <url><loc>http://simson.io/ridges/reference/draw_bb.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/ele_wilder_kaiser.html</loc></url>
+<url><loc>http://simson.io/ridges/reference/export_ridgeline_svgs.html</loc></url>
 <url><loc>http://simson.io/ridges/reference/get_elevation.html</loc></url>
 <url><loc>http://simson.io/ridges/reference/get_last_bb.html</loc></url>
 <url><loc>http://simson.io/ridges/reference/get_last_ele.html</loc></url>
