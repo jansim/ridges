@@ -2,6 +2,7 @@
 
 export(calculate_ridgelines)
 export(draw_bb)
+export(export_ridgeline_svgs)
 export(get_elevation)
 export(get_last_bb)
 export(get_last_ele)
