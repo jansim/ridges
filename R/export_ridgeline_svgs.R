@@ -15,6 +15,7 @@
 #' @param closed Logical; if TRUE, creates closed shapes by adding a baseline (default: FALSE)
 #' @return Invisibly returns the paths to the created SVG files
 #' @export
+#' @importFrom svglite svglite
 #'
 export_ridgeline_svgs <- function(elevation = NULL,
                                   output_dir = "export",

@@ -17,7 +17,8 @@ Imports:
     osmdata,
     ggplot2,
     terra,
-    ggridges
+    ggridges,
+    svglite
 Depends:
     R (>= 3.5)
 LazyData: true
